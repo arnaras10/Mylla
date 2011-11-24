@@ -5,4 +5,4 @@
 5.git git push -u origin master
 
 
-6.git pull iphone  blar
+6.git pull "niiiice"
