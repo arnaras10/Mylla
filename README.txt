@@ -5,4 +5,4 @@
 5.git git push -u origin master
 
 
-6.git pull
+6.git pull iphone
