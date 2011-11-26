@@ -1,7 +1,6 @@
 package is.marshmallow;
 
 import java.io.*;
-import java.lang.*;
 
 public class Program
 {
