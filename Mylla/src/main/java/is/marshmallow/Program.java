@@ -1,12 +1,7 @@
 package is.marshmallow;
-
 import java.io.*;
-<<<<<<< HEAD
 import java.lang.*;
 import java.util.Scanner;
-=======
->>>>>>> e3fc9dd9eb4320701db1e2ada258d70b52037e95
-
 public class Program
 {
 	public static void main(String[] args)
@@ -14,7 +9,6 @@ public class Program
 		String player1 = "";
 		String player2 = "";
 		String lastPlayer = "";
-
 		System.out.print("Choose a name for player 1: ");
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
         try {
