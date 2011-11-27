@@ -1,113 +1,114 @@
 package is.marshmallow;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import static org.junit.Assert.*;
 
-public class TicTacToeTest extends TestCase {
-	/**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public TicTacToeTest( String testName )
-    {
-        super(testName);
-    }
-    
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( TicTacToeTest.class );
-    }
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
+public class TicTacToeTest {
 
-	public void TestSwitchPlayer()
-	{
-		// Arrange:
-	    TicTacToe t = new TicTacToe("Halli", "Bjarni");
-
-	    // Act:
-	    t.placeMarker(1, "X");
-
-	    // Assert:
-	    assertEquals(false, t.placeMarker(4, "X"));
+	@Before
+	public void setUp() throws Exception {
 	}
-        /*
 
-	        public void TestInitializedBoard()
-	        {
-	            // Arrange:
-	            TicTacToe t = new TicTacToe("John", "Hancock");
+	@After
+	public void tearDown() throws Exception {
+	}
 
-	            // Act:
+	@Test
+	public void test() {
+	}
 
-	            // Assert:
-	            assertEquals("[1][2][3]\n[4][5][6]\n[7][8][9]\n", t.getBoard());
-	            //"Bord birtist EKKI rett";
-	        }
+	@Test
+    public void TestInitializedBoard()
+    {
+        // Arrange:
+        TicTacToe t = new TicTacToe("John", "Hancock");
 
-	        public void TestPlaceMarker()
-	        {
-	            // Arrange:
-	            TicTacToe t = new TicTacToe("John", "Lennon");
+        // Act:
 
-	            // Act:
-	            t.placeMarker(5, "X");
+        // Assert:
+        assertEquals("[1][2][3]\n[4][5][6]\n[7][8][9]\n", t.getBoard());
+    }
 
-	            // Assert:
-	            assertEquals(false, t.placeMarker(5, "O"));
-	            assertEquals(true, t.placeMarker(1, "O"));
-	        }
+	@Test
+    public void TestPlaceMarker()
+    {
+        // Arrange:
+        TicTacToe t = new TicTacToe("John", "Lennon");
 
-	        public void TestCorrectMarker() // kemur réttur marker á réttum player
-	        {
-	            // Arrange:
-	            TicTacToe t = new TicTacToe("Hoho", "Bobo");
+        // Act:
+        t.placeMarker(5, "X");
 
-	            // Act:
-	            t.placeMarker(5, "X");
+        // Assert:
+        assertEquals(false, t.placeMarker(5, "O"));
+        assertEquals(true, t.placeMarker(1, "O"));
+    }
 
-	            // Assert:
-	            assertEquals(false, t.placeMarker(4, "X"));
-	            assertEquals(true, t.placeMarker(4, "O"));
-	        }
+	@Test
+    public void TestCorrectMarker() // kemur réttur marker á réttum player
+    {
+        // Arrange:
+        TicTacToe t = new TicTacToe("Hoho", "Bobo");
 
-	        public void TestCheckWinnerRow() // kannar hvort sé búið að vinna með röð
-	        {
-	            // Arrange:
-	            TicTacToe t = new TicTacToe("Gunny", "Duder");
+        // Act:
+        t.placeMarker(5, "X");
 
-	            // Act:
-	            t.placeMarker(1, "X");
-	            t.placeMarker(4, "O");
-	            t.placeMarker(2, "X");
-	            t.placeMarker(5, "O");
-	            t.placeMarker(3, "X");
+        // Assert:
+        assertEquals(false, t.placeMarker(4, "X"));
+        assertEquals(true, t.placeMarker(4, "O"));
+    }
 
-	            // Assert:
-	            assertEquals(true, t.checkWinner());
-	        }
+	@Test
+    public void TestCheckWinnerRow() // kannar hvort se budi ad vinna med rod
+    {
+        // Arrange:
+        TicTacToe t = new TicTacToe("Gunny", "Duder");
 
-	        public void TestCheckDraw()
-	        {
-	            // Arrange:
-	            TicTacToe t = new TicTacToe("Brandur", "Enni");
+        // Act:
+        t.placeMarker(1, "X");
+        t.placeMarker(4, "O");
+        t.placeMarker(2, "X");
+        t.placeMarker(5, "O");
+        t.placeMarker(3, "X");
 
-	            // Act:
-	            t.placeMarker(1, "X");
-	            t.placeMarker(8, "O");
-	            t.placeMarker(2, "X");
-	            t.placeMarker(3, "O");
-	            t.placeMarker(6, "X");
-	            t.placeMarker(4, "O");
-	            t.placeMarker(5, "X");
-	            t.placeMarker(9, "O");
-	            t.placeMarker(7, "X");
+        // Assert:
+        assertEquals(true, t.checkWinner());
+    }
 
-	            // Assert:
-	            assertEquals(true, t.checkDraw());
-      }*/
+	@Test
+    public void TestCheckDraw()
+    {
+        // Arrange:
+        TicTacToe t = new TicTacToe("Brandur", "Enni");
+
+        // Act:
+        t.placeMarker(1, "X");
+        t.placeMarker(8, "O");
+        t.placeMarker(2, "X");
+        t.placeMarker(3, "O");
+        t.placeMarker(6, "X");
+        t.placeMarker(4, "O");
+        t.placeMarker(5, "X");
+        t.placeMarker(9, "O");
+        t.placeMarker(7, "X");
+
+        // Assert:
+        assertEquals(true, t.checkDraw());
+	}
+    
+    @Test
+    public void TestSwitchPlayer()
+    {
+        // Arrange:
+        TicTacToe t = new TicTacToe("Halli", "Bjarni");
+
+        // Act:
+        t.placeMarker(1, "X");
+
+        // Assert:
+        assertEquals(false, t.placeMarker(4, "X"));
+    }
+
 }
