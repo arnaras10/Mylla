@@ -1,8 +1,11 @@
 package is.marshmallow;
 
 import java.io.*;
+<<<<<<< HEAD
 import java.lang.*;
 import java.util.Scanner;
+=======
+>>>>>>> e3fc9dd9eb4320701db1e2ada258d70b52037e95
 
 public class Program
 {
