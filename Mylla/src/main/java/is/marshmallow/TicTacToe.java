@@ -1,4 +1,3 @@
-
 package is.marshmallow;
 
 public class TicTacToe {
@@ -102,7 +101,7 @@ public class TicTacToe {
         // finna DÁLKA winnera
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                if ( !(Character.isLetter(tempBoard[i][j].charAt(0))) )
+                if ( !(Character.isLetter(tempBoard[j][i].charAt(0))) )
                 {
                     break;
                 }
@@ -173,4 +172,3 @@ public class TicTacToe {
         return board.getBoardString();
     }
 }
-
