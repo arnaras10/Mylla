@@ -1,52 +1,14 @@
 package is.marshmallow;
 
-public class TicTacToe {
+public class TicTacToe
+{
     String player1;
     String player2;
     String currentMarker;
     String currentPlayer;
     Board board;
     public boolean isWinner;
-
-    public String getPlayer1() {
-        return player1;
-    }
-
-    public void setPlayer1(String player1) {
-        this.player1 = player1;
-    }
-
-    public String getPlayer2() {
-        return player2;
-    }
-
-    public void setPlayer2(String player2) {
-        this.player2 = player2;
-    }
-
-    public String getCurrentMarker() {
-        return currentMarker;
-    }
-
-    public void setCurrentMarker(String currentMarker) {
-        this.currentMarker = currentMarker;
-    }
-
-    public String getCurrentPlayer() {
-        return currentPlayer;
-    }
-
-    public void setCurrentPlayer(String currentPlayer) {
-        this.currentPlayer = currentPlayer;
-    }
-
-    public boolean getIsWinner() {
-        return this.isWinner;
-    }
-
-    public void setWinner(boolean winner) {
-        isWinner = winner;
-    }
+    public int count;
 
     public TicTacToe(String player1, String player2) {
         this.player1 = player1;
@@ -54,25 +16,17 @@ public class TicTacToe {
         currentMarker = "X";
         currentPlayer = this.player1;
         isWinner = false;
+        count = 0;
 
         board = new Board();
     }
 
     public boolean checkDraw() {
-        if (!isWinner) {
-            String[][] tempArr = new String[3][3];
-            tempArr = board.getBoardArray();
 
-            for (int i = 0; i < 3; i++) {
-                for (int j = 0; j < 3; j++) {
-                    if ( !(Character.isLetter(tempArr[i][j].charAt(0))) )
-                        return false;
-                }
-            }
+        if (count > 8){
             isWinner = true;
             return true;
         }
-
         return false;
     }
 
@@ -139,11 +93,13 @@ public class TicTacToe {
         if (currentMarker.equals("X")) {
             currentMarker = "O";
             currentPlayer = player2;
+            count++;
         }
 
         else {
             currentMarker = "X";
             currentPlayer = player1;
+            count++;
         }
     }
 
@@ -171,4 +127,45 @@ public class TicTacToe {
     public String getBoard() {
         return board.getBoardString();
     }
+
+    public String getPlayer1() {
+           return player1;
+       }
+
+       public void setPlayer1(String player1) {
+           this.player1 = player1;
+       }
+
+       public String getPlayer2() {
+           return player2;
+       }
+
+       public void setPlayer2(String player2) {
+           this.player2 = player2;
+       }
+
+       public String getCurrentMarker() {
+           return currentMarker;
+       }
+
+       public void setCurrentMarker(String currentMarker) {
+           this.currentMarker = currentMarker;
+       }
+
+       public String getCurrentPlayer() {
+           return currentPlayer;
+       }
+
+       public void setCurrentPlayer(String currentPlayer) {
+           this.currentPlayer = currentPlayer;
+       }
+
+       public boolean getIsWinner() {
+           return this.isWinner;
+       }
+
+       public void setWinner(boolean winner) {
+           isWinner = winner;
+       }
+
 }
