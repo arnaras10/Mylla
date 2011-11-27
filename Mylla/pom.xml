@@ -27,4 +27,16 @@
     
   </dependencies>
   
+  <scm>
+    <connection>
+      scm:git:ssh://github.com/arnaras10/Mylla.git
+    </connection>
+    <developerConnection>
+      scm:git:ssh://git@github.com:arnaras10/Mylla.git
+    </developerConnection>
+    <url>
+      https://github.com/arnaras10/Mylla.git
+    </url>
+  </scm>
+  
 </project>
