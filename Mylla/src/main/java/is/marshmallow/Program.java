@@ -2,6 +2,7 @@ package is.marshmallow;
 
 import java.io.*;
 import java.lang.*;
+import java.util.Scanner;
 
 public class Program
 {
@@ -35,7 +36,10 @@ public class Program
 			System.out.println("It is " + t.currentPlayer + "'s turn ");
 			System.out.print("Select a number: ");
             try {
-                t.placeMarker((int) in.read(), t.currentMarker);
+                String number = in.readLine();
+                int value = Integer.parseInt(number);
+
+                t.placeMarker(value, t.currentMarker);
             } catch (IOException e) {
                 e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
             }

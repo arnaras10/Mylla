@@ -41,40 +41,20 @@ public class Board
 		return board;
 	}
 
-	/*
-	public boolean updateBoard(int place, char marker)
-	{
-	    for (int i = 0; i < 3; i++)
-	    {
-	        for (int j = 0; j < 3; j++)
-	        {
-	            if (board[i][j] == place)
-	            {
-	                board[i][j] = marker;
-	                return true;
-	            }
-	        }
-	    }
+    public boolean updateBoard(int place, String marker)
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                if (board[i][j].equals(Integer.toString(place)))
+                {
+                    board[i][j] = marker;
+                    return true;
+                }
+            }
+        }
 
-	    return false;
-	}
-
-
-	public String getBoard()
-	{
-	    StringBuilder builder = new StringBuilder("Bord: \n");
-
-	    for (int i = 0; i < 3; i++)
-	    {
-
-	        for (int j = 0; j < 3; j++)
-	        {
-	            builder.append("[" + board[i][j] + "]");
-	        }
-
-	        builder.append("\n");
-	    }
-
-	    return builder.toString();
-	} */
+        return false;
+    }
 }

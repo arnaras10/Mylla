@@ -1,7 +1,5 @@
 
-
 package is.marshmallow;
-
 
 public class TicTacToe {
     String player1;
@@ -68,7 +66,7 @@ public class TicTacToe {
 
             for (int i = 0; i < 3; i++) {
                 for (int j = 0; j < 3; j++) {
-                    if (tempArr[i][j]!= String.valueOf(0))
+                    if ( !(Character.isLetter(tempArr[i][j].charAt(0))) )
                         return false;
                 }
             }
@@ -87,11 +85,11 @@ public class TicTacToe {
         // finna RAÐIR winnera
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                if (tempBoard[i][j]!= String.valueOf(0))
+                if ( !(Character.isLetter(tempBoard[i][j].charAt(0))) )
                     break;
                 if (j == 0)
                     current = tempBoard[i][j];
-                else if (current != tempBoard[i][j])
+                else if ( !(current.equals(tempBoard[i][j])) )
                     break;
 
                 if (j == 2) {
@@ -104,13 +102,13 @@ public class TicTacToe {
         // finna DÁLKA winnera
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                if (tempBoard[i][j]!= String.valueOf(0))
+                if ( !(Character.isLetter(tempBoard[i][j].charAt(0))) )
                 {
                     break;
                 }
                 if (j == 0) {
                     current = tempBoard[j][i];
-                } else if (current != tempBoard[j][i])
+                } else if ( !(current.equals(tempBoard[j][i])) )
                 {
                     break;
                 }
@@ -123,13 +121,13 @@ public class TicTacToe {
 
         // finna KROSS winnera
         current = tempBoard[0][0];
-        if ((current != String.valueOf(0)) && (tempBoard[1][1]== current) && (tempBoard[2][2] == current))
+        if ( (Character.isLetter(current.charAt(0))) && (tempBoard[1][1].equals(current)) && (tempBoard[2][2].equals(current)))
         {
             isWinner = true;
             return true;
         }
         current = tempBoard[2][0];
-        if ((current != String.valueOf(0)) && (tempBoard[1][1]== current) && (tempBoard[0][2]== current))
+        if ( (Character.isLetter(current.charAt(0))) && (tempBoard[1][1].equals(current)) && (tempBoard[0][2].equals(current)))
         {
             isWinner = true;
             return true;
@@ -139,7 +137,7 @@ public class TicTacToe {
     }
 
     public void switchPlayer() {
-        if (currentMarker == "X") {
+        if (currentMarker.equals("X")) {
             currentMarker = "O";
             currentPlayer = player2;
         }
@@ -152,15 +150,15 @@ public class TicTacToe {
 
 
     public boolean placeMarker(int place, String marker) {
-        if (getCurrentMarker() == marker) {
+        if (getCurrentMarker().equals(marker)) {
             String[][] tempArr = new String[3][3];
             tempArr = board.getBoardArray();
 
             for (int i = 0; i < 3; i++) {
                 for (int j = 0; j < 3; j++) {
-                    if (tempArr[i][j] == String.valueOf(place) )
+                    if (String.valueOf(place).equals(tempArr[i][j]))
                     {
-                        tempArr[i][j] = marker;
+                        board.updateBoard(place, marker);
                         switchPlayer();
                         return true;
                     }
