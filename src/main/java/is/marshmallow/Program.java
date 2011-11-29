@@ -11,20 +11,39 @@ public class Program
 		String player2 = "";
 		String lastPlayer = "";
 		boolean continuePlay = true;
+        boolean correctPlayer1Name = false;
+        boolean correctPlayer2Name = false;
+        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 
         System.out.println("=== TicTacToe ===");
-        System.out.print("Choose a name for player 1: ");                           // spyrja um nofn
-        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-        try {
-            player1 = in.readLine();
-        } catch (IOException e) {
-            e.printStackTrace();
+        while ( !correctPlayer1Name )
+        {
+            System.out.print("Choose a name for player 1: ");                           // spyrja um nofn
+            try
+            {
+                player1 = in.readLine();
+
+                if ( !(("").equals(player1)) ) // kannar hvort player1 nafn sé tómt
+                { correctPlayer1Name = true; }
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-        System.out.print("Choose a name for player 2: ");
-        try {
-            player2 = in.readLine();
-        } catch (IOException e) {
-            e.printStackTrace();
+
+        while ( !correctPlayer2Name )
+        {
+            System.out.print("Choose a name for player 2: ");
+            try
+            {
+                player2 = in.readLine();
+
+                if ( !(("").equals(player2)) )
+                { correctPlayer2Name = true; }
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
         System.out.println();
@@ -49,19 +68,28 @@ public class Program
 
                     while ( !isInputCorrect )                       // kannar hvort ad slegid var inn tala minni en 2
                     {
-                        if ( Character.isDigit(number.charAt(0)) && (number.length() < 2) )
+                        if ( !("").equals(number) )
                         {
-                            value = Integer.parseInt(number);
-                            isInputCorrect = true;
+                            if ( Character.isDigit(number.charAt(0)) && (number.length() < 2) )
+                            {
+                                value = Integer.parseInt(number);
+                                isInputCorrect = true;
+                            }
+
+                            else
+                            {
+                                System.out.println();
+                                System.out.print("Please use only one digit. Try again: ");
+                                number = in.readLine();
+                            }
                         }
 
                         else
                         {
                             System.out.println();
-                            System.out.print("Only use one digit! Try again: ");
+                            System.out.print("Please type in a digit. Try again: ");
                             number = in.readLine();
                         }
-
                     }
 
 
